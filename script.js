@@ -83,8 +83,14 @@ document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 function changeColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return;
-    if(mode === "eraser") e.target.style.backgroundColor = backgroundColor;
     if(mode === "color") e.target.style.backgroundColor = brushColor;
+    if(mode === "eraser") e.target.style.backgroundColor = backgroundColor;
+    if(mode === "rainbow") {
+        const hue = Math.floor(Math.random() * 360);
+        const saturation = Math.floor(Math.random() * 100);
+        const lightness = Math.floor(Math.random() * 100);
+        e.target.style.backgroundColor = `hsl(${hue},${saturation}%,${lightness}%)`;
+    }
 }
 
 generateGrid();
