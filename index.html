@@ -11,17 +11,47 @@
     <div id="main-container">
         <div id="controls">
             <div id="grid-controls">
-                <label for="grid-size">Grid size <span id="grid-size-number">(16x16)</span></label>
-                <input type="range" name="grid-size" id="grid-size" min="1" max="50" value="16">
-                <button id="generate-grid">Regenerate grid</button>
+                <label for="grid-size">Canvas size <span id="grid-size-number">(16x16)</span></label>
+                <input type="range" name="grid-size" id="grid-size" min="1" max="35" value="16">
+
             </div>
             <div id="color-controls">
-                
+                <label for="background-color">Background color</label>
+                <input type="color" id="background-color" name="background-color" value="#FFFFFF">
+                <button id="generate-grid">Update background</button>
+                <label for="brush-color">Brush color</label>
+                <input type="color" id="brush-color" name="brush-color" value="#000000">
+            </div>
+            <div id="mode-controls">
+                <label for="mode-radios">Mode:</label>
+                <div>
+                    <input type="radio" id="mode-color" name="modes" value="color" checked>
+                    <label for="mode-color">Color</label>
+                </div>
+                <div>
+                    <input type="radio" id="mode-rainbow" name="modes" value="rainbow">
+                    <label for="mode-rainbow">Rainbow</label>
+                </div>
+                <div>
+                    <input type="radio" id="mode-lighten" name="modes" value="lighten">
+                    <label for="mode-lighten">Lighten</label>
+                </div>
+                <div>
+                    <input type="radio" id="mode-darken" name="modes" value="darken">
+                    <label for="mode-darken">Darken</label>
+                </div>
+
+            </div>
+            <div>
+                <p>Changing any of the options besides brush options will reset the canvas.</p>
             </div>
         </div>
-        <div id="grid">
+        <div id="grid-container" class="grid-border">
+            <div id="grid">
 
+            </div>
         </div>
+
     </div>
 </body>
 </html>

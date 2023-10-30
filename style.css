@@ -22,6 +22,13 @@ body {
     gap: 30px;
 }
 
+.grid-border {
+}
+
+#grid-container {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 #grid {
     display: flex;
     flex-flow: row wrap;
@@ -33,20 +40,30 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 200px;
 }
 
-#grid-controls {
+#grid-controls, #color-controls, #mode-controls {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+#color-controls input{
+    width: 100%;
+}
+
+#mode-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
 .square {
     padding: 10px;
-    background-color: aqua;
-    border: 1px solid black;
+    user-select: none;
 }
 
 .hovered {
-    background-color: red;
+    /*background-color: red !important;*/
 }
