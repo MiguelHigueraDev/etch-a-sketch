@@ -36,6 +36,16 @@ generateGridButton.addEventListener('click', () => {
 });
 
 // Handle mode change
+let mode;
+const modeOptions = document.getElementsByName('modes');
+for (mode of modeOptions) {
+    mode.addEventListener('input', updateMode);
+    mode = "color";
+}
+
+function updateMode(e) {
+    mode = e.target.value;
+}
 
 function generateGrid() {
     document.querySelectorAll('.square').forEach(e => e.remove());
@@ -73,20 +83,18 @@ document.body.onmousedown = () => (mouseDown = true)
 document.body.onmouseup = () => (mouseDown = false)
 function changeColor(e) {
     if (e.type === 'mouseover' && !mouseDown) return;
-    e.target.style.backgroundColor = brushColor;
+    if(mode === "eraser") e.target.style.backgroundColor = backgroundColor;
+    if(mode === "color") e.target.style.backgroundColor = brushColor;
 }
 
-// Generate grid without waiting
-generateGrid(0);
+generateGrid();
 
 // TODO:
 /*
 *   Let user select grid size DONE!
 *   Handle grid hover DONE!
-*   Handle grid square clicks
+*   Handle grid square clicks DONE!
 *   Let user switch modes (draw, delete)
 *   Let user clear grid
 *   
 */
-
-console.log(gridContainer);
