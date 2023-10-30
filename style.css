@@ -35,8 +35,18 @@ body {
     gap: 20px;
 }
 
+#grid-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .square {
     padding: 10px;
     background-color: aqua;
     border: 1px solid black;
+}
+
+.hovered {
+    background-color: red;
 }
