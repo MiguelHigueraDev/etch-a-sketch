@@ -89,9 +89,9 @@ function changeColor(e) {
     if(mode === "color") e.target.style.backgroundColor = brushColor;
     if(mode === "eraser") e.target.style.backgroundColor = backgroundColor;
     if(mode === "rainbow") e.target.style.backgroundColor = getRandomHslColor();
-    if(mode === "lighten") {
-        e.target.style.backgroundColor = lighten(e.target.style.backgroundColor);
-    }
+    if(mode === "lighten") e.target.style.backgroundColor = lighten(e.target.style.backgroundColor);
+    if(mode === "darken") e.target.style.backgroundColor = darken(e.target.style.backgroundColor);
+
 }
 
 function getRandomHslColor() {
@@ -108,6 +108,16 @@ function lighten(rgb) {
     let saturation = hslArray[3];
     let lightness = Number(hslArray[4]);
     lightness += 7;
+    return `hsl(${hue},${saturation}%,${lightness}%)`;
+}
+
+function darken(rgb) {
+    const hsl = getHslFromRgb(rgb);
+    const hslArray = HSL_REGEX.exec(hsl);
+    let hue = hslArray[2];
+    let saturation = hslArray[3];
+    let lightness = Number(hslArray[4]);
+    lightness -= 7;
     return `hsl(${hue},${saturation}%,${lightness}%)`;
 }
 
@@ -168,13 +178,3 @@ function getHslFromRgb(rgb) {
 
 
 generateGrid();
-
-// TODO:
-/*
-*   Let user select grid size DONE!
-*   Handle grid hover DONE!
-*   Handle grid square clicks DONE!
-*   Let user switch modes (draw, delete)
-*   Let user clear grid
-*   
-*/
