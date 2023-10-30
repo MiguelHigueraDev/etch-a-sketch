@@ -66,20 +66,6 @@ function generateGrid() {
 
 }
 
-// Handle mouseover and mouseout, to add (and remove) trailing effect
-const TRAIL_DURATION_SECONDS = 0.1;
-const trailDuration = TRAIL_DURATION_SECONDS * 1000;
-gridContainer.addEventListener('mouseover', (e) => {
-    e.target.classList.add('hovered');
-});
-
-gridContainer.addEventListener('mouseout', (e) => {
-    setTimeout(() => {
-        e.target.classList.remove('hovered');
-    }, trailDuration);
-});
-
-
 // Handle drawing on the grid
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true)
